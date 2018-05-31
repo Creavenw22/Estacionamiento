@@ -5,19 +5,19 @@ int Menu(void)
 {
     int opcion;
     system("cls");
-    printf("\n¿Que desea hacer?\n\n");
-    printf("~Administracion de propietarios~\n");
-    printf("~1-Alta Propietario~\n");
-    printf("~2-Modificar Tarjeta de Credito~\n");
-    printf("~3-Baja Propietario~\n\n");
-    printf("~Administracion de automoviles~\n");
-    printf("~4-Ingreso Automovil~\n");
-    printf("~5-Egreso Automovil~\n\n");
-    printf("~Funciones~\n");
-    printf("~6-Listas~\n");
-    printf("~7-Recaudaciones~\n\n");
-    printf("~8-Buscar Propietario~\n\n");
-    printf("~0-Salir~\n\n\n\n");
+    printf("\n\n\t\t\t\t\t\t~¿Que desea hacer?~\n\t\t\t\t\t\n\n");
+    printf("\t\t\t\t\t~Administracion de propietarios~\n");
+    printf("\t\t\t\t\t~1-Alta Propietario~\n");
+    printf("\t\t\t\t\t~2-Modificar Tarjeta de Credito~\n");
+    printf("\t\t\t\t\t~3-Baja Propietario~\n\n");
+    printf("\t\t\t\t\t~Administracion de automoviles~\n");
+    printf("\t\t\t\t\t~4-Ingreso Automovil~\n");
+    printf("\t\t\t\t\t~5-Egreso  Automovil~\n\n");
+    printf("\t\t\t\t\t~Funciones~\n");
+    printf("\t\t\t\t\t~6-Listas~\n");
+    printf("\t\t\t\t\t~7-Recaudaciones~\n\n");
+    printf("\t\t\t\t\t~8-Buscar Propietario~\n\n");
+    printf("\t\t\t\t\t~0-Salir~\n\n\n\n");
 
     printf("Ingrese opcion: ");
     fflush(stdin);
@@ -66,7 +66,12 @@ int listarPropietarios(EPersona Persona[],int valor)
         {
             lenNombre=strlen(Persona[i].NombreCompleto);
 
-            printf("%d\t%s\t\t",Persona[i].ID,Persona[i].NombreCompleto);
+            printf("%d\t%s\t",Persona[i].ID,Persona[i].NombreCompleto);
+
+            if(lenNombre<8)
+            {
+                printf("\t");
+            }
 
             if(lenNombre<16)
             {
@@ -542,6 +547,63 @@ int getStringNumeros(char mensaje[],char input[])
     return 0;
 }
 
+int getStringCreditCard(char mensaje[],char input[])
+{
+    char aux[256];
+    int lenInput;
+    getString(mensaje,aux);
+    lenInput=strlen(aux);
+    if(esNumerico(aux))
+    {
+        if(lenInput<20)
+        {
+            setCredCard(aux);
+            strcpy(input,aux);
+            return 1;
+        }
+
+        else
+        {
+            printf("La tarjeta de credito debe tener 16 numeros separados cada 4 por espacios o guiones");
+        }
+
+    }
+
+
+    return 0;
+}
+
+void setCredCard(char input[])
+{
+    int tarjetaArrayint[16];
+    char tarjetaArraychar[19];
+
+    for(int i=0; i=='\0';i++)
+    {
+        if(input[i]<='9'&&input[i]>='0')
+        {
+            int j=0;
+            tarjetaArrayint[j]=atoi(input[i]);
+            j++;
+        }
+    }
+
+    for(int i=0; i<=20 ;i++)
+    {
+        if(i==4||i==0||i==14)
+        {
+                tarjetaArraychar[i]=' ';
+        }
+        else
+        {
+                int j=0;
+                tarjetaArraychar[i]=tarjetaArrayint[j];
+                j++;
+        }
+    }
+    strcpy(input,tarjetaArraychar);
+}
+
 int esNumerico(char str[])
 {
     int i=0;
@@ -787,7 +849,6 @@ void egresoAuto(EAuto Auto[],EPersona Persona[],EOutput Output[],int lugar,int t
     system("pause");
 }
 
-
 void listas(EPersona Persona[], EAuto Auto[], int valor)
 {
 
@@ -1012,7 +1073,6 @@ void hardCodeAuto(EAuto Auto[])
     }
 
 }
-
 
 void hardCodeOutput(EOutput Output[])
 {

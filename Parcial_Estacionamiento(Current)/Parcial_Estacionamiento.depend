@@ -57,3 +57,18 @@
 1526552185 source:c:\users\franas\desktop\parcial_estacionamiento(current)\main.c
 	"funciones.h"
 
+1527726812 source:c:\##bustamante\estacionamiento\parcial_estacionamiento(current)\funciones.c
+	"funciones.h"
+
+1527726718 c:\##bustamante\estacionamiento\parcial_estacionamiento(current)\funciones.h
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<strings.h>
+	<conio.h>
+	<ctype.h>
+	<time.h>
+
+1527726638 source:c:\##bustamante\estacionamiento\parcial_estacionamiento(current)\main.c
+	"funciones.h"
+

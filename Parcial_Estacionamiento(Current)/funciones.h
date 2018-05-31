@@ -156,6 +156,10 @@ typedef struct
  *  \return Returns: 1 si esta todo validado, sino devuelve 0.
  */ int getStringNumeros(char mensaje[],char input[]);
 
+ int getStringCreditCard(char mensaje[],char input[]);
+
+ void setCredCard(char input[]);
+
 
 /** \brief Pide un string y valida que contenga solo letras.
  *  \param  Request: cadena que va a ser validada.

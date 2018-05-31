@@ -4,6 +4,7 @@
 
 int main()
 {
+    system("color 1F");
     //CREO E INICIO LAS ESTRUCTURAS CORRESPONDIENTES
     EPersona Persona[ESP];
     inicializarPropietarios(Persona,ESP);
@@ -50,7 +51,7 @@ int main()
             }
 
             //VALIDA QUE NO HAYA NUMEROS EN EL NOMBRE
-            if(!getStringLetras("\n\nIngrese nombre: \n\n",auxNombreAr))
+            if(!getStringLetras("\n\nIngrese nombre completo: \n\n",auxNombreAr))
             {
                 printf("\n\n\n\t\t\t\t\t~El nombre ingresado debe tener solo letras~\n\n\n\n");
                 system("pause");
@@ -58,7 +59,7 @@ int main()
             }
 
             //VALIDA QUE NO HAYA LETRAS EN LA TARJETA
-            if(!getStringNumeros("\n\nIngrese Tarjeta de Credito: \n\n",auxTarjetaAr))
+            if(!getStringNumeros("\n\nIngrese Tarjeta de Credito (xxxx-xxxx-xxxx-xxxx): \n\n",auxTarjetaAr))
             {
                 printf("\n\n\n\t\t\t\t\t~La tarjeta de credito debe tener solo numeros~\n\n\n\n");
                 system("pause");
